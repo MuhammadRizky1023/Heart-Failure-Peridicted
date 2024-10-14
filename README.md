@@ -47,9 +47,9 @@ Data Preparation
 
 Beberapa teknik data preparation yang diterapkan termasuk:
 
-    Mengatasi missing values.
-    Normalisasi data pada fitur numerik untuk memudahkan proses pelatihan model.
-    Split data menjadi 80% data latih dan 20% data uji untuk memastikan bahwa model dapat diuji dengan benar.
+Mengatasi missing values.
+Normalisasi data pada fitur numerik untuk memudahkan proses pelatihan model.
+Split data menjadi 80% data latih dan 20% data uji untuk memastikan bahwa model dapat diuji dengan benar.
 
 Tahapan ini diperlukan agar model yang dibangun dapat dilatih dengan data yang bersih dan memastikan bahwa hasil evaluasi lebih akurat.
 Modeling
