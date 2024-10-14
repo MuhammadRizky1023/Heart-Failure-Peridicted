@@ -56,24 +56,21 @@ Modeling
 
 Pada bagian ini, tiga model telah dibangun dan diuji:
 
-    K-Nearest Neighbor (KNN): Model sederhana yang bekerja dengan mengukur jarak antara sampel dan menentukan kelas berdasarkan mayoritas tetangga terdekat.
-    Random Forest (RF): Model ensemble yang membangun banyak pohon keputusan dan mengambil hasil berdasarkan voting dari tiap pohon.
-    Boosting: Model yang berfokus pada memperbaiki prediksi yang salah dari model sebelumnya.
+K-Nearest Neighbor (KNN): Model sederhana yang bekerja dengan mengukur jarak antara sampel dan menentukan kelas berdasarkan mayoritas tetangga terdekat.
+Random Forest (RF): Model ensemble yang membangun banyak pohon keputusan dan mengambil hasil berdasarkan voting dari tiap pohon.
+Boosting: Model yang berfokus pada memperbaiki prediksi yang salah dari model sebelumnya.
 
 Improvement: Hyperparameter tuning dilakukan pada Random Forest dan Boosting untuk memaksimalkan akurasi model dengan menggunakan grid search. Setelah tuning, Random Forest menunjukkan hasil yang paling baik dengan performa yang stabil.
 Evaluation
 
 Model dievaluasi menggunakan metrik Mean Squared Error (MSE) dan akurasi. Berikut hasil dari setiap model:
 
-    K-Nearest Neighbor (KNN):
-        MSE Latih: 0.00012, MSE Uji: 0.00037
-        Akurasi: 78%
-    Random Forest (RF):
-        MSE Latih: 0.0, MSE Uji: 0.000158
-        Akurasi: 84%
-    Boosting:
-        MSE Latih: 0.000061, MSE Uji: 0.000141
-        Akurasi: 82%
+   
+| Model                   | MSE Latih  | MSE Uji    | Akurasi |
+|-------------------------|------------|------------|---------|
+| K-Nearest Neighbor (KNN) | 0.00012    | 0.00037    | 78%     |
+| Random Forest (RF)       | 0.0        | 0.000158   | 84%     |
+| Boosting                 | 0.000061   | 0.000141   | 82%     |
 
 Random Forest dipilih sebagai model terbaik karena memiliki nilai MSE yang rendah dan akurasi yang lebih baik dibandingkan model lain.
 
