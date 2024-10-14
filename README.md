@@ -1,17 +1,17 @@
-Laporan Proyek Machine Learning - Muhammad Rizky
+Laporan Proyek Heart Disease Prediction - Muhammad Rizky
 Domain Proyek
 
 Penyakit jantung merupakan salah satu penyebab utama kematian di dunia. Dengan adanya perkembangan teknologi dan data medis yang besar, machine learning dapat digunakan untuk membantu memprediksi risiko seseorang terkena penyakit jantung berdasarkan faktor-faktor seperti usia, jenis kelamin, tekanan darah, kadar kolesterol, dan lainnya.
 
 Pentingnya prediksi ini adalah untuk membantu klinik dan rumah sakit dalam memberikan perawatan lebih awal dan mencegah risiko fatal bagi pasien.
 
-Business Understanding
+## Business Understanding
 Problem Statements
 
     Bagaimana cara memprediksi penyakit jantung dengan menggunakan data medis seperti usia, tekanan darah, dan kadar kolesterol?
     Algoritma apa yang memberikan hasil prediksi terbaik untuk kasus penyakit jantung?
 
-Goals
+## Goals
 
     Membangun model machine learning yang mampu memprediksi apakah seseorang memiliki risiko terkena penyakit jantung atau tidak.
     Membandingkan performa beberapa algoritma seperti K-Nearest Neighbor (KNN), Random Forest, dan Boosting, untuk menemukan model terbaik.
@@ -21,17 +21,26 @@ Solution Statements
     Kami akan menggunakan tiga algoritma: K-Nearest Neighbor (KNN), Random Forest, dan Boosting untuk memecahkan masalah prediksi.
     Setelah membangun model dasar, hyperparameter tuning dilakukan untuk meningkatkan performa model, terutama pada algoritma Random Forest dan Boosting.
 
-Data Understanding
+## Data Understanding
 
-Dataset yang digunakan adalah "Heart Failure Prediction" dari Kaggle. Dataset ini terdiri dari 918 sampel dengan 12 fitur yang menjelaskan karakteristik pasien, termasuk usia, jenis kelamin, dan kondisi medis lainnya.
 
-Fitur dalam dataset:
+Dataset yang digunakan pada proyek ini dibuat oleh [fedesoriano](https://www.kaggle.com/fedesoriano), yang diunggah ke [Kaggle](https://www.kaggle.com/) pada Desember 2021. Dataset ini dapat ditemukan di [Heart Failure Prediction Dataset](https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction).
 
-    Age: Usia pasien.
-    Sex: Jenis kelamin pasien.
-    ChestPainType: Jenis nyeri dada yang dialami.
-    Cholesterol: Kadar kolesterol pasien.
-    HeartDisease: Target label, apakah pasien mengalami penyakit jantung (1) atau tidak (0).
+Dataset ini terdiri dari **918 baris** dan **12 kolom**, yang mencakup variabel-variabel klinis pasien, termasuk usia, tekanan darah, kolesterol, dan kondisi jantung pasien yang direpresentasikan dalam variabel target **HeartDisease**.
+
+### Fitur-Fitur:
+- **Age**: Usia pasien.
+- **Sex**: Jenis kelamin pasien.
+- **ChestPainType**: Tipe nyeri dada yang dialami pasien.
+- **RestingBP**: Tekanan darah saat istirahat.
+- **Cholesterol**: Tingkat kolesterol dalam darah.
+- **FastingBS**: Gula darah setelah berpuasa.
+- **RestingECG**: Hasil rekam jantung saat istirahat.
+- **MaxHR**: Denyut jantung maksimum.
+- **ExerciseAngina**: Angina yang dipicu oleh olahraga.
+- **Oldpeak**: Penurunan ST setelah olahraga.
+- **ST_Slope**: Kemiringan segmen ST saat uji stres jantung.
+- **HeartDisease**: Label target, menunjukkan apakah pasien menderita penyakit jantung (1) atau tidak (0).
 
 Analisis eksplorasi data dilakukan untuk memahami distribusi dari setiap fitur, termasuk penggunaan visualisasi seperti histogram dan pair plot untuk melihat hubungan antar fitur.
 Data Preparation
@@ -68,7 +77,7 @@ Model dievaluasi menggunakan metrik Mean Squared Error (MSE) dan akurasi. Beriku
 
 Random Forest dipilih sebagai model terbaik karena memiliki nilai MSE yang rendah dan akurasi yang lebih baik dibandingkan model lain.
 
-Referensi:
+## Referensi:
 
     Rahman, S. et al. (2022). "Predicting Heart Disease Using Machine Learning Techniques". Journal of Healthcare Engineering.
     World Health Organization (2021). "Cardiovascular diseases (CVDs)".
