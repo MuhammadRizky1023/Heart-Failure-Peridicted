@@ -50,6 +50,37 @@ Split data menjadi 80% data latih dan 20% data uji untuk memastikan bahwa model 
 
 Tahapan ini diperlukan agar model yang dibangun dapat dilatih dengan data yang bersih dan memastikan bahwa hasil evaluasi lebih akurat.
 
+Data Preparation
+
+Setelah memahami data, kami melakukan beberapa tahapan Data Preparation untuk mempersiapkan data sebelum model diimplementasikan. Langkah-langkah ini termasuk:
+
+    Handling Missing Values Berdasarkan hasil eksplorasi, tidak ada missing values dalam dataset ini sehingga tidak diperlukan proses imputasi atau penghapusan data.
+
+    Encoding Fitur Kategori Untuk fitur kategori seperti Sex, ChestPainType, RestingECG, ExerciseAngina, dan ST_Slope, kami melakukan encoding agar data bisa digunakan oleh model machine learning. Kami menggunakan One-Hot Encoding untuk fitur dengan lebih dari dua kategori.
+
+    python
+
+df_encoded = pd.get_dummies(df, columns=['Sex', 'ChestPainType', 'RestingECG', 'ExerciseAngina', 'ST_Slope'])
+
+Feature Scaling Kami menggunakan StandardScaler untuk menormalisasi fitur numerik seperti Age, RestingBP, Cholesterol, MaxHR, dan Oldpeak agar memiliki skala yang sama dan memudahkan algoritma untuk bekerja lebih baik.
+
+python
+
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+df_scaled = scaler.fit_transform(df[['Age', 'RestingBP', 'Cholesterol', 'MaxHR', 'Oldpeak']])
+
+Train-Test Split Kami membagi dataset menjadi data latih (80%) dan data uji (20%) untuk memastikan evaluasi model dilakukan pada data yang belum pernah dilihat model.
+
+python
+
+    from sklearn.model_selection import train_test_split
+    X = df_encoded.drop('HeartDisease', axis=1)
+    y = df_encoded['HeartDisease']
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+
+
 ## Model Development
 
 Pada bagian ini, tiga model telah dibangun dan diuji:
