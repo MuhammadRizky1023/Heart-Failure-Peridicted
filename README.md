@@ -25,19 +25,21 @@ Dataset yang digunakan pada proyek ini dibuat oleh [fedesoriano](https://www.kag
 
 Dataset ini terdiri dari **918 baris** dan **12 kolom**, yang mencakup variabel-variabel klinis pasien, termasuk usia, tekanan darah, kolesterol, dan kondisi jantung pasien yang direpresentasikan dalam variabel target **HeartDisease**.
 
-### Fitur-Fitur:
-- **Age**: Usia pasien.
-- **Sex**: Jenis kelamin pasien.
-- **ChestPainType**: Tipe nyeri dada yang dialami pasien.
-- **RestingBP**: Tekanan darah saat istirahat.
-- **Cholesterol**: Tingkat kolesterol dalam darah.
-- **FastingBS**: Gula darah setelah berpuasa.
-- **RestingECG**: Hasil rekam jantung saat istirahat.
-- **MaxHR**: Denyut jantung maksimum.
-- **ExerciseAngina**: Angina yang dipicu oleh olahraga.
-- **Oldpeak**: Penurunan ST setelah olahraga.
-- **ST_Slope**: Kemiringan segmen ST saat uji stres jantung.
-- **HeartDisease**: Label target, menunjukkan apakah pasien menderita penyakit jantung (1) atau tidak (0).
+| **Fitur**          | **Deskripsi**                                                                         |
+|--------------------|---------------------------------------------------------------------------------------|
+| **Age**            | Umur pasien (dalam tahun)                                                             |
+| **Sex**            | Jenis kelamin pasien (M = Pria, F = Wanita)                                            |
+| **ChestPainType**   | Tipe nyeri dada (TA = Typical Angina, ATA = Atypical Angina, NAP = Non-Anginal Pain, ASY = Asymptomatic) |
+| **RestingBP**      | Tekanan darah saat istirahat (mm Hg)                                                  |
+| **Cholesterol**    | Kadar kolesterol serum dalam darah (mm/dl)                                             |
+| **FastingBS**      | Gula darah puasa (1 = jika FastingBS > 120 mg/dl, 0 = jika FastingBS <= 120 mg/dl)     |
+| **RestingECG**     | Hasil elektrokardiografi istirahat (Normal, ST, LVH)                                   |
+| **MaxHR**          | Detak jantung maksimal yang dicapai                                                    |
+| **ExerciseAngina** | Angina akibat aktivitas fisik (Y = Yes, N = No)                                        |
+| **Oldpeak**        | Depresi ST yang disebabkan oleh latihan relatif terhadap istirahat                     |
+| **ST_Slope**       | Kemiringan segmen ST saat puncak latihan (Up, Flat, Down)                              |
+| **HeartDisease**   | Klasifikasi penyakit jantung (1 = memiliki penyakit jantung, 0 = tidak)                |
+
 
 Analisis eksplorasi data dilakukan untuk memahami distribusi dari setiap fitur, termasuk penggunaan visualisasi seperti histogram dan pair plot untuk melihat hubungan antar fitur.
 Data Preparation
