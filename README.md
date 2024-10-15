@@ -60,6 +60,11 @@ Distribusi dari beberapa variabel kategori dalam dataset seperti **Umur (Age)**,
 Univariate analysis dilakukan untuk memahami distribusi dari setiap fitur secara individual. Kita akan memeriksa apakah data terdistribusi normal, apakah ada skewness, dan bagaimana distribusi nilai dalam setiap variabel.
 
 ## Exploratory Data Analysis (EDA) Multivariate Analysis
+### Korelasi Antar Fitur Numerik
+
+Korelasi antara fitur numerik seperti **Umur (Age)**, **Tekanan Darah Istirahat (RestingBP)**, dan **Kolesterol (Cholesterol)** menunjukkan hubungan antar variabel. Gambar heatmap korelasi berikut menggambarkan kekuatan hubungan antara fitur-fitur ini.
+
+![Korelasi Fitur Numerik](https://drive.google.com/uc?export=view&id=1qyKaitq5zHg2oRnILUXfJmjpgV7KWukh)
 
 
 ## Data Preparation
