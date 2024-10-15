@@ -7,14 +7,12 @@ Pentingnya prediksi ini adalah untuk membantu klinik dan rumah sakit dalam membe
 
 ## Business Understanding
 Problem Statements
-
-    Bagaimana cara memprediksi penyakit jantung dengan menggunakan data medis seperti usia, tekanan darah, dan kadar kolesterol?
-    Algoritma apa yang memberikan hasil prediksi terbaik untuk kasus penyakit jantung?
+Bagaimana cara memprediksi penyakit jantung dengan menggunakan data medis seperti usia, tekanan darah, dan kadar kolesterol?
+Algoritma apa yang memberikan hasil prediksi terbaik untuk kasus penyakit jantung?
 
 ## Goals
-
-    Membangun model machine learning yang mampu memprediksi apakah seseorang memiliki risiko terkena penyakit jantung atau tidak.
-    Membandingkan performa beberapa algoritma seperti K-Nearest Neighbor (KNN), Random Forest, dan Boosting, untuk menemukan model terbaik.
+ Membangun model machine learning yang mampu memprediksi apakah seseorang memiliki risiko terkena penyakit jantung atau tidak.
+ Membandingkan performa beberapa algoritma seperti K-Nearest Neighbor (KNN), Random Forest, dan Boosting, untuk menemukan model terbaik.
 
 Solution Statements
 
