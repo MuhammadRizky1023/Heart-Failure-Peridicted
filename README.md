@@ -130,6 +130,26 @@ Pada grafik di bawah ini, kita dapat melihat perbandingan **MSE** dari beberapa 
 
 Dari evaluasi ini, dapat disimpulkan bahwa model **Random Forest (RF)** dan **Boosting** memberikan performa yang lebih baik dibandingkan model lainnya dalam hal MSE dan akurasi
 
+### Grafik Akurasi Model
+
+Grafik di bawah menunjukkan perbandingan **akurasi** dari beberapa model:
+
+![Akurasi for Different Models](https://drive.google.com/uc?export=view&id=1Lr7E1y-SV_a72z-gaNqviZ3Rq6QFIiDg)
+
+Dari grafik akurasi tersebut, kita dapat melihat bahwa:
+
+- **Random Forest (RF)**, terutama yang sudah dituning (RF_turned), memiliki **akurasi tertinggi**, baik pada data latih maupun data uji.
+- **Boosting** juga memiliki akurasi yang sangat baik, meskipun sedikit di bawah **Random Forest**.
+- **K-Nearest Neighbor (KNN)** memiliki akurasi yang lebih rendah dibandingkan model lainnya, baik pada data latih maupun data uji.
+
+### Kesimpulan Akurasi
+
+- **Random Forest** dengan tuning terbukti memiliki akurasi terbaik, menunjukkan bahwa model ini lebih handal dalam melakukan prediksi dibandingkan model lainnya.
+- **Boosting** juga memberikan akurasi yang cukup tinggi dan dapat diandalkan.
+- **KNN** tidak memberikan performa yang optimal, dengan akurasi yang lebih rendah dari model lain.
+
+Dengan metrik **akurasi**, model **Random Forest** menjadi pilihan terbaik dalam proyek ini.
+
 ## Referensi:
 
 Rahman, S. et al. (2022). "Predicting Heart Disease Using Machine Learning Techniques". Journal of Healthcare Engineering.
