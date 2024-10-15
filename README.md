@@ -118,6 +118,18 @@ Model dievaluasi menggunakan metrik Mean Squared Error (MSE) dan akurasi. Beriku
 ## Improvement Model dengan HyperTurning Hyperparameter Tuning
 Proses hyperparameter tuning dilakukan untuk Random Forest dan Boosting menggunakan GridSearchCV. Tuning ini meningkatkan akurasi dan menurunkan MSE, khususnya pada Random Forest yang tetap menjadi model terbaik.
 
+## Grafik Peforma Model
+### Visualisasi MSE untuk Model yang Berbeda
+
+Pada grafik di bawah ini, kita dapat melihat perbandingan **MSE** dari beberapa model yang digunakan. Grafik ini memvisualisasikan MSE baik pada data latih maupun data uji untuk setiap model.
+
+![MSE Model](https://drive.google.com/uc?export=view&id=1AtOWiV-bxgRogeZLHYB2wquHX-RjKzdD)
+- **RF_turned** dan **Boosting** memiliki performa yang baik pada data latih dan uji, dengan nilai MSE uji yang rendah.
+- **KNN** menunjukkan perbedaan yang signifikan antara MSE latih dan uji, yang mungkin menunjukkan **overfitting**.
+- **Random Forest (RF)** pada versi tuning maupun tidak menunjukkan bahwa performanya tetap baik dengan MSE uji yang rendah.
+
+Dari evaluasi ini, dapat disimpulkan bahwa model **Random Forest (RF)** dan **Boosting** memberikan performa yang lebih baik dibandingkan model lainnya dalam hal MSE dan akurasi
+
 ## Referensi:
 
 Rahman, S. et al. (2022). "Predicting Heart Disease Using Machine Learning Techniques". Journal of Healthcare Engineering.
