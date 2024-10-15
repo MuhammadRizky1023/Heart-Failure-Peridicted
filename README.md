@@ -73,7 +73,9 @@ Model dievaluasi menggunakan metrik Mean Squared Error (MSE) dan akurasi. Beriku
 | Random Forest (RF)       | 0.0        | 0.000158   | 84%     |
 | Boosting                 | 0.000061   | 0.000141   | 82%     |
 
-Random Forest dipilih sebagai model terbaik karena memiliki nilai MSE yang rendah dan akurasi yang lebih baik dibandingkan model lain.
+
+## Improvement Model dengan HyperTurning Hyperparameter Tuning
+Proses hyperparameter tuning dilakukan untuk Random Forest dan Boosting menggunakan GridSearchCV. Tuning ini meningkatkan akurasi dan menurunkan MSE, khususnya pada Random Forest yang tetap menjadi model terbaik.
 
 ## Referensi:
 
