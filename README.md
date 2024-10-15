@@ -79,5 +79,6 @@ Proses hyperparameter tuning dilakukan untuk Random Forest dan Boosting mengguna
 
 ## Referensi:
 
-    Rahman, S. et al. (2022). "Predicting Heart Disease Using Machine Learning Techniques". Journal of Healthcare Engineering.
-    World Health Organization (2021). "Cardiovascular diseases (CVDs)".
+Rahman, S. et al. (2022). "Predicting Heart Disease Using Machine Learning Techniques". Journal of Healthcare Engineering.
+World Health Organization (2021). "Cardiovascular diseases (CVDs)".
+aleema S., S. Syed dan M. Ahmad, "Application of Machine Learning Algorithms for Heart Disease Prediction," International Journal of Advanced Computer Science and Applications, vol. 11, no. 4, 2020.
