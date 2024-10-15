@@ -41,16 +41,26 @@ Dataset ini terdiri dari **918 baris** dan **12 kolom**, yang mencakup variabel-
 | **HeartDisease**   | Klasifikasi penyakit jantung (1 = memiliki penyakit jantung, 0 = tidak)                |
 
 
-Analisis eksplorasi data dilakukan untuk memahami distribusi dari setiap fitur, termasuk penggunaan visualisasi seperti histogram dan pair plot untuk melihat hubungan antar fitur.
-Data Preparation
+## Exploratory Data Analysis (EDA)
 
-Beberapa teknik data preparation yang diterapkan termasuk:
+Exploratory data analysis merupakan proses investigasi awal pada data untuk menganalisis karakteristik, menemukan pola, anomali, dan memeriksa asumsi pada data. Teknik ini biasanya menggunakan bantuan statistik dan representasi grafis atau visualisasi.
+### Distribusi Variabel Kategori
 
-Mengatasi missing values.
-Normalisasi data pada fitur numerik untuk memudahkan proses pelatihan model.
-Split data menjadi 80% data latih dan 20% data uji untuk memastikan bahwa model dapat diuji dengan benar.
+Distribusi dari beberapa variabel kategori dalam dataset seperti **Jenis Kelamin (Sex)**, **Tipe Nyeri Dada (ChestPainType)**, dan **Hasil EKG Istirahat (RestingECG)** ditampilkan untuk melihat sebaran data.
 
-Tahapan ini diperlukan agar model yang dibangun dapat dilatih dengan data yang bersih dan memastikan bahwa hasil evaluasi lebih akurat.
+![Distribusi Variabel Kategori](https://drive.google.com/file/d/1iWavfllfj_mdKjjgGSLPZV1Zo9x3nhW7/view?usp=drive_link)
+
+### Korelasi Antar Fitur Numerik
+
+Korelasi antara fitur numerik seperti **Umur (Age)**, **Tekanan Darah Istirahat (RestingBP)**, dan **Kolesterol (Cholesterol)** menunjukkan hubungan antar variabel. Gambar heatmap korelasi berikut menggambarkan kekuatan hubungan antara fitur-fitur ini.
+
+![Heatmap Korelasi Fitur Numerik](https://drive.google.com/file/d/15HJoVQTBp3p7pfnm-ciBOL26bfChBvxn/view?usp=drive_link)
+
+## Exploratory Data Analysis (EDA) Univariate Analysis
+Univariate analysis dilakukan untuk memahami distribusi dari setiap fitur secara individual. Kita akan memeriksa apakah data terdistribusi normal, apakah ada skewness, dan bagaimana distribusi nilai dalam setiap variabel.
+
+## Exploratory Data Analysis (EDA) Multivariate Analysis
+
 
 ## Data Preparation
 
