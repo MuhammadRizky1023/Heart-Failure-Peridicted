@@ -48,13 +48,13 @@ Exploratory data analysis merupakan proses investigasi awal pada data untuk meng
 
 Distribusi dari beberapa variabel kategori dalam dataset seperti **Jenis Kelamin (Sex)**, **Tipe Nyeri Dada (ChestPainType)**, dan **Hasil EKG Istirahat (RestingECG)** ditampilkan untuk melihat sebaran data.
 
-![Distribusi Variabel Kategori](https://drive.google.com/file/d/1iWavfllfj_mdKjjgGSLPZV1Zo9x3nhW7/view?usp=drive_link)
+![Distribusi Variabel Kategori](https://drive.google.com/uc?export=view&id=1iWavfllfj_mdKjjgGSLPZV1Zo9x3nhW7)
 
-### Korelasi Antar Fitur Numerik
+### Distribusi Variabelr Numerik
 
-Korelasi antara fitur numerik seperti **Umur (Age)**, **Tekanan Darah Istirahat (RestingBP)**, dan **Kolesterol (Cholesterol)** menunjukkan hubungan antar variabel. Gambar heatmap korelasi berikut menggambarkan kekuatan hubungan antara fitur-fitur ini.
+Distribusi dari beberapa variabel kategori dalam dataset seperti **Umur (Age)**, **Tekanan Darah Istirahat (RestingBP)**, dan **Kolesterol (Cholesterol)** ditampilkan untuk melihat sebaran data.
 
-![Heatmap Korelasi Fitur Numerik](https://drive.google.com/file/d/15HJoVQTBp3p7pfnm-ciBOL26bfChBvxn/view?usp=drive_link)
+![Korelasi Fitur Numerik](https://drive.google.com/uc?export=view&id=15HJoVQTBp3p7pfnm-ciBOL26bfChBvxn)
 
 ## Exploratory Data Analysis (EDA) Univariate Analysis
 Univariate analysis dilakukan untuk memahami distribusi dari setiap fitur secara individual. Kita akan memeriksa apakah data terdistribusi normal, apakah ada skewness, dan bagaimana distribusi nilai dalam setiap variabel.
