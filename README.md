@@ -1,4 +1,4 @@
-Laporan Proyek Heart Disease Prediction - Muhammad Rizky
+## Laporan Proyek Heart Disease Prediction - Muhammad Rizky
 Domain Proyek
 
 Penyakit jantung merupakan salah satu penyebab utama kematian di dunia. Dengan adanya perkembangan teknologi dan data medis yang besar, machine learning dapat digunakan untuk membantu memprediksi risiko seseorang terkena penyakit jantung berdasarkan faktor-faktor seperti usia, jenis kelamin, tekanan darah, kadar kolesterol, dan lainnya.
