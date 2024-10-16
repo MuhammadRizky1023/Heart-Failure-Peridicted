@@ -73,19 +73,19 @@ Korelasi antara fitur numerik seperti **Umur (Age)**, **Tekanan Darah Istirahat 
 
 Setelah memahami data, kami melakukan beberapa tahapan Data Preparation untuk mempersiapkan data sebelum model diimplementasikan. Langkah-langkah ini termasuk:
 
-    Handling Missing Values Berdasarkan hasil eksplorasi, tidak ada missing values dalam dataset ini sehingga tidak diperlukan proses imputasi atau penghapusan data.
+Handling Missing Values Berdasarkan hasil eksplorasi, tidak ada missing values dalam dataset ini sehingga tidak diperlukan proses imputasi atau penghapusan data.
 
-    Encoding Fitur Kategori Untuk fitur kategori seperti Sex, ChestPainType, RestingECG, ExerciseAngina, dan ST_Slope, kami melakukan encoding agar data bisa digunakan oleh model machine learning. Kami menggunakan One-Hot Encoding untuk fitur dengan lebih dari dua kategori.
+Encoding Fitur Kategori Untuk fitur kategori seperti Sex, ChestPainType, RestingECG, ExerciseAngina, dan ST_Slope, kami melakukan encoding agar data bisa digunakan oleh model machine learning. Kami menggunakan One-Hot Encoding untuk fitur dengan lebih dari dua kategori.
 
 
-df_encoded = pd.get_dummies(df, columns=['Sex', 'ChestPainType', 'RestingECG', 'ExerciseAngina', 'ST_Slope'])
+   df_encoded = pd.get_dummies(df, columns=['Sex', 'ChestPainType', 'RestingECG', 'ExerciseAngina', 'ST_Slope'])
 
 Feature Scaling Kami menggunakan StandardScaler untuk menormalisasi fitur numerik seperti Age, RestingBP, Cholesterol, MaxHR, dan Oldpeak agar memiliki skala yang sama dan memudahkan algoritma untuk bekerja lebih baik.
 
 
-from sklearn.preprocessing import StandardScaler
-scaler = StandardScaler()
-df_scaled = scaler.fit_transform(df[['Age', 'RestingBP', 'Cholesterol', 'MaxHR', 'Oldpeak']])
+   from sklearn.preprocessing import StandardScaler
+   scaler = StandardScaler()
+   df_scaled = scaler.fit_transform(df[['Age', 'RestingBP', 'Cholesterol', 'MaxHR', 'Oldpeak']])
 
 Train-Test Split Kami membagi dataset menjadi data latih (80%) dan data uji (20%) untuk memastikan evaluasi model dilakukan pada data yang belum pernah dilihat model.
 
