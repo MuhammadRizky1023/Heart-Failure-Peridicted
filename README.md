@@ -173,12 +173,15 @@ boosting_model = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1,
 
 Karena ini adalah masalah klasifikasi, evaluasi model dilakukan menggunakan metrik seperti accuracy, precision, recall, dan F1 score, bukan Mean Squared Error (MSE). Berikut hasil evaluasi dari model:
 ### Hasil Evaluasi
-| **Model**                 | **Accuracy** | **Precision** | **Recall** | **F1 Score** |
-|---------------------------|--------------|---------------|------------|--------------|
-| K-Nearest Neighbor (KNN)   | 78%          | 0.76          | 0.80       | 0.78         |
-| Random Forest (RF)         | 84%          | 0.85          | 0.83       | 0.84         |
-| Boosting                  | 82%          | 0.82          | 0.81       | 0.81         |
-
+| Model                  | Train Accuracy (%) | Test Accuracy (%) | Precision | Recall | F1 Score |
+|------------------------|--------------------|-------------------|-----------|--------|----------|
+| K-Nearest Neighbor (KNN) | 95                 | 78                | 0.76      | 0.80   | 0.78     |
+| Random Forest (RF)      | 100                | 84                | 0.85      | 0.83   | 0.84     |
+| Boosting                | 95                 | 82                | 0.82      | 0.81   | 0.81     |
+| Boosting_Tuned          | 96                 | 84                | -         | -      | -        |
+| RF_Turned               | 100                | 83                | -         | -      | -        |
+Train Accuracy dan Test Accuracy pada tabel di atas didasarkan pada grafik yang menunjukkan nilai akurasi untuk model yang berbeda.
+Beberapa nilai Precision, Recall, dan F1 Score tidak tersedia untuk model Boosting_Tuned dan RF_Turned karena nilai tersebut tidak diwakili dalam grafik yang Anda berikan.
 
 ## Visualisasi Plot
 ### Visualisasi MSE untuk Model yang Berbeda
