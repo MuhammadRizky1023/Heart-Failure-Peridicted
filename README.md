@@ -116,7 +116,8 @@ Metode IQR digunakan untuk mendeteksi outlier dengan menghitung kuartil pertama 
 Outlier merupakan data yang menyimpang jauh dari nilai-nilai lain dalam dataset dan bisa mempengaruhi performa model. Kami menggunakan metode statistik seperti Z-score untuk mendeteksi outlier pada fitur numerik. Jika ditemukan nilai-nilai yang ekstrem, kami memutuskan untuk menghilangkannya guna menjaga kualitas data.
 ### Label Encoding
 
-       categorical_cols = ['Sex', 'ChestPainType', 'RestingECG', 'ExerciseAngina', 'ST_Slope']
+  
+       categorical_encode_features = ['Sex', 'ChestPainType', 'RestingECG', 'ExerciseAngina', 'ST_Slope']
 
 Kami melakukan proses Label Encoding untuk mengubah variabel kategorikal menjadi numerik. Fitur-fitur seperti Sex, ChestPainType, RestingECG, ExerciseAngina, dan ST_Slope diubah menjadi representasi numerik menggunakan metode ini. Langkah ini penting agar model machine learning dapat memahami data kategorikal dengan lebih baik.
 ### Feature Engineering
