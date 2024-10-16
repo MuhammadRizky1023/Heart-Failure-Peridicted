@@ -1,22 +1,20 @@
 ## Laporan Proyek Heart Disease Prediction - Muhammad Rizky
 ## Domain Proyek
+Penyakit jantung merupakan salah satu penyebab utama kematian di dunia. Dengan adanya perkembangan teknologi dan data medis yang besar, machine learning dapat digunakan untuk membantu memprediksi risiko seseorang terkena penyakit jantung berdasarkan faktor-faktor klinis seperti usia, jenis kelamin, tekanan darah, kadar kolesterol, dan lainnya. Prediksi ini sangat penting untuk mendukung upaya pencegahan dini serta membantu klinik dan rumah sakit memberikan perawatan lebih awal kepada pasien berisiko tinggi (Rahman et al., 2022; WHO, 2021).
 
-Penyakit jantung merupakan salah satu penyebab utama kematian di dunia. Dengan adanya perkembangan teknologi dan data medis yang besar, machine learning dapat digunakan untuk membantu memprediksi risiko seseorang terkena penyakit jantung berdasarkan faktor-faktor seperti usia, jenis kelamin, tekanan darah, kadar kolesterol, dan lainnya.
-
-Pentingnya prediksi ini adalah untuk membantu klinik dan rumah sakit dalam memberikan perawatan lebih awal dan mencegah risiko fatal bagi pasien.
 
 ## Business Understanding
 ### Problem Statements
-Bagaimana cara memprediksi penyakit jantung dengan menggunakan data medis seperti usia, tekanan darah, dan kadar kolesterol?
-Algoritma apa yang memberikan hasil prediksi terbaik untuk kasus penyakit jantung?
+- Bagaimana cara memprediksi risiko penyakit jantung berdasarkan data medis?
+- Algoritma machine learning apa yang memberikan performa terbaik dalam memprediksi penyakit jantung?
 
 ### Goals
- Membangun model machine learning yang mampu memprediksi apakah seseorang memiliki risiko terkena penyakit jantung atau tidak.
- Membandingkan performa beberapa algoritma seperti K-Nearest Neighbor (KNN), Random Forest, dan Boosting, untuk menemukan model terbaik.
+ - Membangun model machine learning yang dapat memprediksi apakah seseorang berisiko terkena penyakit jantung.
+ - Membandingkan performa beberapa algoritma seperti K-Nearest Neighbor (KNN), Random Forest, dan Boosting untuk menemukan model terbaik.
 
    ### Solution Statements
-   Kami akan menggunakan tiga algoritma: K-Nearest Neighbor (KNN), Random Forest, dan Boosting untuk memecahkan masalah prediksi.
-   Setelah membangun model dasar, hyperparameter tuning dilakukan untuk meningkatkan performa model, terutama pada algoritma Random Forest dan Boosting.
+   - Menggunakan tiga algoritma utama: K-Nearest Neighbor (KNN), Random Forest, dan Boosting.
+   - Melakukan hyperparameter tuning pada Random Forest dan Boosting untuk meningkatkan akurasi model.
 
 ## Data Understanding
 
@@ -40,6 +38,10 @@ Dataset ini terdiri dari **918 baris** dan **12 kolom**, yang mencakup variabel-
 | **Oldpeak**        | Depresi ST yang disebabkan oleh latihan relatif terhadap istirahat                     |
 | **ST_Slope**       | Kemiringan segmen ST saat puncak latihan (Up, Flat, Down)                              |
 | **HeartDisease**   | Klasifikasi penyakit jantung (1 = memiliki penyakit jantung, 0 = tidak)                |
+
+### Kondisi Data
+- Missing Values: Tidak ada data kosong dalam dataset ini.
+- Duplikat: Tidak ditemukan data duplikat dalam dataset.
 
 
 ## Exploratory Data Analysis (EDA)
@@ -69,58 +71,68 @@ Korelasi antara fitur numerik seperti **Umur (Age)**, **Tekanan Darah Istirahat 
 ![Korelasi Fitur Numerik](https://drive.google.com/uc?export=view&id=1qyKaitq5zHg2oRnILUXfJmjpgV7KWukh)
 
 
-## Data Preparation
+## Data PreparationPada tahap ini, dilakukan beberapa proses untuk mempersiapkan data sebelum model machine learning diterapkan.
+## Feature Engineering
 
-Setelah memahami data, kami melakukan beberapa tahapan Data Preparation untuk mempersiapkan data sebelum model diimplementasikan. Langkah-langkah ini termasuk:
-
-Handling Missing Values Berdasarkan hasil eksplorasi, tidak ada missing values dalam dataset ini sehingga tidak diperlukan proses imputasi atau penghapusan data.
-
-Encoding Fitur Kategori Untuk fitur kategori seperti Sex, ChestPainType, RestingECG, ExerciseAngina, dan ST_Slope, kami melakukan encoding agar data bisa digunakan oleh model machine learning. Kami menggunakan One-Hot Encoding untuk fitur dengan lebih dari dua kategori.
+Dilakukan One-Hot Encoding untuk fitur kategori seperti Sex, ChestPainType, RestingECG, ExerciseAngina, dan ST_Slope.
 
 
-     df_encoded = pd.get_dummies(df, columns=['Sex', 'ChestPainType', 'RestingECG', 'ExerciseAngina', 'ST_Slope'])
+df_encoded = pd.get_dummies(df, columns=['Sex', 'ChestPainType', 'RestingECG', 'ExerciseAngina', 'ST_Slope'])
 
-Feature Scaling Kami menggunakan StandardScaler untuk menormalisasi fitur numerik seperti Age, RestingBP, Cholesterol, MaxHR, dan Oldpeak agar memiliki skala yang sama dan memudahkan algoritma untuk bekerja lebih baik.
+## Feature Scaling
 
+Fitur numerik seperti Age, RestingBP, Cholesterol, MaxHR, dan Oldpeak dinormalisasi menggunakan StandardScaler untuk menghindari bias pada model.
 
-     from sklearn.preprocessing import StandardScaler
-     scaler = StandardScaler()
-     df_scaled = scaler.fit_transform(df[['Age', 'RestingBP', 'Cholesterol', 'MaxHR', 'Oldpeak']])
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+df_scaled = scaler.fit_transform(df[['Age', 'RestingBP', 'Cholesterol', 'MaxHR', 'Oldpeak']])
 
-Train-Test Split Kami membagi dataset menjadi data latih (80%) dan data uji (20%) untuk memastikan evaluasi model dilakukan pada data yang belum pernah dilihat model.
+## Split Data
 
-    from sklearn.model_selection import train_test_split
-    X = df_encoded.drop('HeartDisease', axis=1)
-    y = df_encoded['HeartDisease']
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+Dataset dibagi menjadi 80% data latih dan 20% data uji menggunakan fungsi train_test_split.
 
+from sklearn.model_selection import train_test_split
+X = df_encoded.drop('HeartDisease', axis=1)
+y = df_encoded['HeartDisease']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 
 ## Model Development
 
-Pada bagian ini, tiga model telah dibangun dan diuji:
+Tiga algoritma machine learning diterapkan untuk memprediksi penyakit jantung: K-Nearest Neighbor (KNN), Random Forest, dan Boosting. Setiap algoritma dieksplorasi dengan tuning hyperparameter untuk meningkatkan performa.
+K-Nearest Neighbor (KNN)
 
-K-Nearest Neighbor (KNN): Model sederhana yang bekerja dengan mengukur jarak antara sampel dan menentukan kelas berdasarkan mayoritas tetangga terdekat.
-Random Forest (RF): Model ensemble yang membangun banyak pohon keputusan dan mengambil hasil berdasarkan voting dari tiap pohon.
-Boosting: Model yang berfokus pada memperbaiki prediksi yang salah dari model sebelumnya.
+KNN bekerja dengan mencari tetangga terdekat dan mengklasifikasikan data berdasarkan mayoritas kelas tetangga tersebut. Parameter penting dalam model ini adalah jumlah tetangga k.
+Random Forest
 
-Improvement: Hyperparameter tuning dilakukan pada Random Forest dan Boosting untuk memaksimalkan akurasi model dengan menggunakan grid search. Setelah tuning, Random Forest menunjukkan hasil yang paling baik dengan performa yang stabil.
-Evaluation
+Random Forest adalah model ensemble yang terdiri dari banyak decision trees. Tiap pohon keputusan dibangun dari subset data dan hasil akhirnya didapat dari voting mayoritas tiap pohon. Beberapa hyperparameter penting termasuk jumlah pohon (n_estimators) dan kedalaman pohon (max_depth).
+Boosting
 
-Model dievaluasi menggunakan metrik Mean Squared Error (MSE) dan akurasi. Berikut hasil dari setiap model:
-
-   
-| Model                   | MSE Latih  | MSE Uji    | Akurasi |
-|-------------------------|------------|------------|---------|
-| K-Nearest Neighbor (KNN) | 0.00012    | 0.00037    | 78%     |
-| Random Forest (RF)       | 0.0        | 0.000158   | 84%     |
-| Boosting                 | 0.000061   | 0.000141   | 82%     |
+Boosting adalah metode ensemble yang meningkatkan akurasi model dengan mengkombinasikan beberapa model lemah yang terus diperbaiki pada iterasi berikutnya. Algoritma yang digunakan adalah Gradient Boosting.
 
 
-## Improvement Model dengan HyperTurning Hyperparameter Tuning
-Proses hyperparameter tuning dilakukan untuk Random Forest dan Boosting menggunakan GridSearchCV. Tuning ini meningkatkan akurasi dan menurunkan MSE, khususnya pada Random Forest yang tetap menjadi model terbaik.
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+from sklearn.neighbors import KNeighborsClassifier
 
-## Grafik Peforma Model
+### Implementasi model KNN, Random Forest, dan Boosting
+knn_model = KNeighborsClassifier(n_neighbors=5)
+rf_model = RandomForestClassifier(n_estimators=100, max_depth=10, random_state=42)
+boosting_model = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1, random_state=42)
+
+
+
+## Evaluasi
+
+Karena ini adalah masalah klasifikasi, evaluasi model dilakukan menggunakan metrik seperti accuracy, precision, recall, dan F1 score, bukan Mean Squared Error (MSE). Berikut hasil evaluasi dari model:
+### Hasil Evaluasi
+| **Model**                 | **Accuracy** | **Precision** | **Recall** | **F1 Score** |
+|---------------------------|--------------|---------------|------------|--------------|
+| K-Nearest Neighbor (KNN)   | 78%          | 0.76          | 0.80       | 0.78         |
+| Random Forest (RF)         | 84%          | 0.85          | 0.83       | 0.84         |
+| Boosting                  | 82%          | 0.82          | 0.81       | 0.81         |
+
+
+## Visualisasi Plot
 ### Visualisasi MSE untuk Model yang Berbeda
 
 Pada grafik di bawah ini, kita dapat melihat perbandingan **MSE** dari beberapa model yang digunakan. Grafik ini memvisualisasikan MSE baik pada data latih maupun data uji untuk setiap model.
@@ -144,16 +156,16 @@ Dari grafik akurasi tersebut, kita dapat melihat bahwa:
 - **Boosting** juga memiliki akurasi yang sangat baik, meskipun sedikit di bawah **Random Forest**.
 - **K-Nearest Neighbor (KNN)** memiliki akurasi yang lebih rendah dibandingkan model lainnya, baik pada data latih maupun data uji.
 
-### Kesimpulan Akurasi
 
-- **Random Forest** dengan tuning terbukti memiliki akurasi terbaik, menunjukkan bahwa model ini lebih handal dalam melakukan prediksi dibandingkan model lainnya.
-- **Boosting** juga memberikan akurasi yang cukup tinggi dan dapat diandalkan.
-- **KNN** tidak memberikan performa yang optimal, dengan akurasi yang lebih rendah dari model lain.
+## Kesimpulan
 
-Dengan metrik **akurasi**, model **Random Forest** menjadi pilihan terbaik dalam proyek ini.
+    - Random Forest memberikan hasil terbaik dengan akurasi 84% dan stabil di berbagai metrik evaluasi.
+   -  Boosting memberikan hasil yang baik tetapi sedikit di bawah Random Forest.
+   -  KNN memiliki akurasi yang lebih rendah, kemungkinan disebabkan oleh overfitting pada data latih.
+
+Dengan demikian, model Random Forest menjadi pilihan terbaik untuk prediksi penyakit jantung dalam proyek ini.
 
 ## Referensi:
-
-Rahman, S. et al. (2022). "Predicting Heart Disease Using Machine Learning Techniques". Journal of Healthcare Engineering.
-World Health Organization (2021). "Cardiovascular diseases (CVDs)".
-aleema S., S. Syed dan M. Ahmad, "Application of Machine Learning Algorithms for Heart Disease Prediction," International Journal of Advanced Computer Science and Applications, vol. 11, no. 4, 2020.
+- Rahman, S. et al. (2022). "Predicting Heart Disease Using Machine Learning Techniques". Journal of Healthcare Engineering.
+- World Health Organization (2021). "Cardiovascular diseases (CVDs)". Available at: https://www.who.int.
+- aleema S., S. Syed dan M. Ahmad, "Application of Machine Learning Algorithms for Heart Disease Prediction," International Journal of Advanced Computer Science and Applications, vol. 11, no. 4, 2020.
