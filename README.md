@@ -74,10 +74,7 @@ Korelasi antara fitur numerik seperti **Umur (Age)**, **Tekanan Darah Istirahat 
 
 ## Data Preparation
 ### Handling Missing Values
-
-
-Menghapus baris yang memiliki nilai kosong
-       df_cleaned = df.dropna()
+        df_cleaned = df.dropna()
 
 Kami mengidentifikasi dan menangani nilai-nilai yang hilang (missing values) di dalam dataset. Menggunakan metode dropna(), kami menghapus baris-baris yang memiliki data kosong untuk mencegah pengaruh negatif pada performa model. Langkah ini penting karena data yang hilang dapat menyebabkan bias atau kesalahan dalam prediksi model.
 ### Handling Outliers
@@ -127,24 +124,24 @@ Kami melakukan proses Label Encoding untuk mengubah variabel kategorikal menjadi
 Dilakukan One-Hot Encoding untuk fitur kategori seperti Sex, ChestPainType, RestingECG, ExerciseAngina, dan ST_Slope.
 
 
-df_encoded = pd.get_dummies(df, columns=['Sex', 'ChestPainType', 'RestingECG', 'ExerciseAngina', 'ST_Slope'])
+              df_encoded = pd.get_dummies(df, columns=['Sex', 'ChestPainType', 'RestingECG', 'ExerciseAngina', 'ST_Slope'])
 
 ### Feature Scaling
 
 Fitur numerik seperti Age, RestingBP, Cholesterol, MaxHR, dan Oldpeak dinormalisasi menggunakan StandardScaler untuk menghindari bias pada model.
 
-from sklearn.preprocessing import StandardScaler
-scaler = StandardScaler()
-df_scaled = scaler.fit_transform(df[['Age', 'RestingBP', 'Cholesterol', 'MaxHR', 'Oldpeak']])
+             from sklearn.preprocessing import StandardScaler
+             scaler = StandardScaler()
+             df_scaled = scaler.fit_transform(df[['Age', 'RestingBP', 'Cholesterol', 'MaxHR', 'Oldpeak']])
 
 ### Split Data
 
 Dataset dibagi menjadi 80% data latih dan 20% data uji menggunakan fungsi train_test_split.
 
-from sklearn.model_selection import train_test_split
-X = df_encoded.drop('HeartDisease', axis=1)
-y = df_encoded['HeartDisease']
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+            from sklearn.model_selection import train_test_split
+            X = df_encoded.drop('HeartDisease', axis=1)
+            y = df_encoded['HeartDisease']
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 
 ## Model Development
