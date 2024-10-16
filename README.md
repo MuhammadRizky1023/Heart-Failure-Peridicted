@@ -24,6 +24,7 @@ Algoritma apa yang memberikan hasil prediksi terbaik untuk kasus penyakit jantun
 Dataset yang digunakan pada proyek ini dibuat oleh [fedesoriano](https://www.kaggle.com/fedesoriano), yang diunggah ke [Kaggle](https://www.kaggle.com/) pada Desember 2021. Dataset ini dapat ditemukan di [Heart Failure Prediction Dataset](https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction).
 
 Dataset ini terdiri dari **918 baris** dan **12 kolom**, yang mencakup variabel-variabel klinis pasien, termasuk usia, tekanan darah, kolesterol, dan kondisi jantung pasien yang direpresentasikan dalam variabel target **HeartDisease**.
+### Variabel-variabel pada Heart Failure dataset adalah sebagai berikut:
 
 | **Fitur**          | **Deskripsi**                                                                         |
 |--------------------|---------------------------------------------------------------------------------------|
@@ -44,6 +45,9 @@ Dataset ini terdiri dari **918 baris** dan **12 kolom**, yang mencakup variabel-
 ## Exploratory Data Analysis (EDA)
 
 Exploratory data analysis merupakan proses investigasi awal pada data untuk menganalisis karakteristik, menemukan pola, anomali, dan memeriksa asumsi pada data. Teknik ini biasanya menggunakan bantuan statistik dan representasi grafis atau visualisasi.
+
+### Exploratory Data Analysis (EDA) Univariate Analysis
+Univariate analysis dilakukan untuk memahami distribusi dari setiap fitur secara individual. Kita akan memeriksa apakah data terdistribusi normal, apakah ada skewness, dan bagaimana distribusi nilai dalam setiap variabel.
 ### Distribusi Variabel Kategori
 
 Distribusi dari beberapa variabel kategori dalam dataset seperti **Jenis Kelamin (Sex)**, **Tipe Nyeri Dada (ChestPainType)**, dan **Hasil EKG Istirahat (RestingECG)** ditampilkan untuk melihat sebaran data.
@@ -56,8 +60,6 @@ Distribusi dari beberapa variabel kategori dalam dataset seperti **Umur (Age)**,
 
 ![Korelasi Fitur Numerik](https://drive.google.com/uc?export=view&id=15HJoVQTBp3p7pfnm-ciBOL26bfChBvxn)
 
-## Exploratory Data Analysis (EDA) Univariate Analysis
-Univariate analysis dilakukan untuk memahami distribusi dari setiap fitur secara individual. Kita akan memeriksa apakah data terdistribusi normal, apakah ada skewness, dan bagaimana distribusi nilai dalam setiap variabel.
 
 ## Exploratory Data Analysis (EDA) Multivariate Analysis
 ### Korelasi Antar Fitur Numerik
