@@ -159,7 +159,7 @@ Dari grafik akurasi tersebut, kita dapat melihat bahwa:
 
 ## Kesimpulan
 
-    - Random Forest memberikan hasil terbaik dengan akurasi 84% dan stabil di berbagai metrik evaluasi.
+   -  Random Forest memberikan hasil terbaik dengan akurasi 84% dan stabil di berbagai metrik evaluasi.
    -  Boosting memberikan hasil yang baik tetapi sedikit di bawah Random Forest.
    -  KNN memiliki akurasi yang lebih rendah, kemungkinan disebabkan oleh overfitting pada data latih.
 
