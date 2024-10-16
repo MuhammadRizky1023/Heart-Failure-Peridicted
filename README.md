@@ -197,7 +197,7 @@ Dari evaluasi ini, dapat disimpulkan bahwa model **Random Forest (RF)** dan **Bo
 Grafik di bawah menunjukkan perbandingan **akurasi** dari beberapa model:
 
 
-![Plot model Akurasi(https://github.com/user-attachments/assets/5ca8e12d-a4eb-48b2-a9de-25e27946aff6)
+![Plot model Akurasi](https://github.com/user-attachments/assets/5ca8e12d-a4eb-48b2-a9de-25e27946aff6)
 
 Dari grafik akurasi tersebut, kita dapat melihat bahwa:
 
