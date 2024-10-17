@@ -184,7 +184,7 @@ Karena ini adalah masalah klasifikasi, evaluasi model dilakukan menggunakan metr
 
 
 Train Accuracy dan Test Accuracy pada tabel di atas didasarkan pada grafik yang menunjukkan nilai akurasi untuk model yang berbeda.
-Beberapa nilai Precision, Recall, dan F1 Score tidak tersedia untuk model Boosting_Tuned dan RF_Turned karena nilai tersebut tidak diwakili dalam grafik yang Anda berikan.
+Beberapa nilai Precision, Recall, dan F1 Score tidak tersedia untuk model Boosting_Tuned dan RF_Turned.
 
 ## Visualisasi Plot
 ### Visualisasi MSE untuk Model yang Berbeda
