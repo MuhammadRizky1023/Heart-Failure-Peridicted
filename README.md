@@ -73,6 +73,7 @@ Korelasi antara fitur numerik seperti **Umur (Age)**, **Tekanan Darah Istirahat 
 
 
 ## Data Preparation
+Pada tahap ini, dilakukan persiapan data sebelum memasukkannya ke dalam model machine learning. Tahapan ini sangat penting karena kualitas data yang digunakan akan sangat mempengaruhi performa model yang dibangun.
 ### Handling Missing Values
         df_cleaned = df.dropna()
 
@@ -114,12 +115,21 @@ outliers = ((numerical_features < lower_bound) | (numerical_features > upper_bou
    
 Metode IQR digunakan untuk mendeteksi outlier dengan menghitung kuartil pertama (Q1) dan kuartil ketiga (Q3). Data yang berada di luar batas lower bound dan upper bound dianggap sebagai outlier. Setelah mendeteksi outlier, baris-baris yang mengandung outlier disaring dan ditampilkan untuk analisis lebih lanjut.
 Outlier merupakan data yang menyimpang jauh dari nilai-nilai lain dalam dataset dan bisa mempengaruhi performa model. Kami menggunakan metode statistik seperti Z-score untuk mendeteksi outlier pada fitur numerik. Jika ditemukan nilai-nilai yang ekstrem, kami memutuskan untuk menghilangkannya guna menjaga kualitas data.
-### Label Encoding
+### Labeling fitur dan Target
+                    x = df.drop('HeartDisease', axis=1)
+                    y = df['HeartDisease']
+   Fitur (X) dipisahkan dari target (y) di mana HeartDisease adalah kolom target yang ingin kita prediksi.
+                  x_extend_full = pd.concat([x, y], axis=1)
+### Encoding Fitur Kategorikal
+Karena ada beberapa fitur kategorikal (seperti Sex, ChestPainType, RestingECG, ExerciseAngina, dan ST_Slope), kita perlu mengubahnya menjadi numerik dengan menggunakan One-Hot Encoding atau Label Encoding.
+### Encoding Fitur Kategorikal
 
-  
-       categorical_encode_features = ['Sex', 'ChestPainType', 'RestingECG', 'ExerciseAngina', 'ST_Slope']
-
-Kami melakukan proses Label Encoding untuk mengubah variabel kategorikal menjadi numerik. Fitur-fitur seperti Sex, ChestPainType, RestingECG, ExerciseAngina, dan ST_Slope diubah menjadi representasi numerik menggunakan metode ini. Langkah ini penting agar model machine learning dapat memahami data kategorikal dengan lebih baik.
+                categorical_encode_features = ['Sex', 'ChestPainType', 'RestingECG', 'ExerciseAngina', 'ST_Slope']  
+                x_extend_full = pd.get_dummies(x_extend_full, columns=categorical_encode_features, drop_first=True)
+Dengan menggunakan get_dummies(), kami mengonversi fitur kategorikal menjadi representasi numerik. Argumen drop_first=True digunakan untuk menghindari multikolinearitas dengan menghapus satu kategori dari setiap fitur.
+### Memisahkan Kembali ke Fitur dan Target
+            x_encoded = x_extend_full.drop('HeartDisease', axis=1)
+            y_encoded = x_extend_full['HeartDisease']
 ### Feature Engineering
 
 Dilakukan One-Hot Encoding untuk fitur kategori seperti Sex, ChestPainType, RestingECG, ExerciseAngina, dan ST_Slope.
@@ -127,13 +137,6 @@ Dilakukan One-Hot Encoding untuk fitur kategori seperti Sex, ChestPainType, Rest
 
               df_encoded = pd.get_dummies(df, columns=['Sex', 'ChestPainType', 'RestingECG', 'ExerciseAngina', 'ST_Slope'])
 
-### Feature Scaling
-
-Fitur numerik seperti Age, RestingBP, Cholesterol, MaxHR, dan Oldpeak dinormalisasi menggunakan StandardScaler untuk menghindari bias pada model.
-
-             from sklearn.preprocessing import StandardScaler
-             scaler = StandardScaler()
-             df_scaled = scaler.fit_transform(df[['Age', 'RestingBP', 'Cholesterol', 'MaxHR', 'Oldpeak']])
 
 ### Split Data
 
@@ -143,6 +146,43 @@ Dataset dibagi menjadi 80% data latih dan 20% data uji menggunakan fungsi train_
             X = df_encoded.drop('HeartDisease', axis=1)
             y = df_encoded['HeartDisease']
             X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+            
+### Feature Scaling
+
+Setelah meng-encode fitur kategorikal, kami perlu melakukan scaling pada fitur numerik untuk menormalkan nilainya.
+Tentukan Fitur Numerik yang Akan Distandarisasi
+
+              numerical_features = ['Age', 'RestingBP', 'Cholesterol', 'MaxHR', 'Oldpeak']
+
+### Inisialisasi StandardScaler
+
+              from sklearn.preprocessing import StandardScaler
+              
+              scaler = StandardScaler()
+        
+### Fit Scaler pada Data Training untuk Fitur Numerik
+
+           scaler.fit(x_train[numerical_features])
+           
+           Terapkan Transformasi pada Data Training
+           
+           python
+           
+           x_train[numerical_features] = scaler.transform(x_train.loc[:, numerical_features])
+
+### Terapkan Transformasi pada Data Testing
+
+            x_test[numerical_features] = scaler.transform(x_test.loc[:, numerical_features])
+
+### Tampilkan Beberapa Baris Pertama dari Data Training yang Sudah Distandarisasi
+
+
+             print(x_train[numerical_features].head())
+
+Dengan langkah-langkah ini, dataset telah siap untuk digunakan dalam pelatihan model machine learning. Setiap langkah penting untuk memastikan data yang digunakan berkualitas tinggi dan dapat menghasilkan model yang akurat.
+
+
 
 
 ## Model Development
