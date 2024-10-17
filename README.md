@@ -152,7 +152,6 @@ K-Nearest Neighbor (KNN)
 
 KNN bekerja dengan mencari tetangga terdekat dan mengklasifikasikan data berdasarkan mayoritas kelas tetangga tersebut. Parameter penting dalam model ini adalah jumlah tetangga k.
 Random Forest
-
 Random Forest adalah model ensemble yang terdiri dari banyak decision trees. Tiap pohon keputusan dibangun dari subset data dan hasil akhirnya didapat dari voting mayoritas tiap pohon. Beberapa hyperparameter penting termasuk jumlah pohon (n_estimators) dan kedalaman pohon (max_depth).
 Boosting
 
@@ -162,7 +161,7 @@ Boosting adalah metode ensemble yang meningkatkan akurasi model dengan mengkombi
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.neighbors import KNeighborsClassifier
 
-### Implementasi model KNN, Random Forest, dan Boosting
+### Implementasi model KNN, Random Forest, dan Boosting 
 knn_model = KNeighborsClassifier(n_neighbors=5)
 rf_model = RandomForestClassifier(n_estimators=100, max_depth=10, random_state=42)
 boosting_model = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1, random_state=42)
